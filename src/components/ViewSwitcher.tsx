@@ -1,18 +1,16 @@
 "use client";
 
 import React from "react";
-import { Sparkles, History, Video, Compass, Smartphone, Monitor } from "lucide-react";
+import { Sparkles, History } from "lucide-react";
 
 interface ViewSwitcherProps {
   isRedesign: boolean;
   onToggle: (redesign: boolean) => void;
-  onOpenVideoGuide: () => void;
 }
 
 export default function ViewSwitcher({
   isRedesign,
   onToggle,
-  onOpenVideoGuide,
 }: ViewSwitcherProps) {
   return (
     <div className="sticky top-0 z-50 bg-[#142622]/95 backdrop-blur-md text-white border-b border-[#2A4C46] shadow-lg transition-all duration-300">
@@ -27,7 +25,7 @@ export default function ViewSwitcher({
           </span>
         </div>
 
-        {/* Center: Mode Toggle */}
+        {/* Right: Mode Toggle */}
         <div className="flex items-center bg-[#0D1A17] p-1 rounded-full border border-white/10 shadow-inner">
           <button
             onClick={() => onToggle(true)}
@@ -51,18 +49,6 @@ export default function ViewSwitcher({
           >
             <History className="w-3.5 h-3.5" />
             <span>Original 1:1 Clone (Conejo Valley)</span>
-          </button>
-        </div>
-
-        {/* Right: Video Demo Helper Modal Button */}
-        <div className="flex items-center gap-2">
-          <button
-            onClick={onOpenVideoGuide}
-            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/10 hover:bg-white/20 text-white font-medium border border-white/15 transition-colors"
-            title="Open 5-Minute Loom Presentation Guide"
-          >
-            <Video className="w-3.5 h-3.5 text-[#C2785C]" />
-            <span>5-Min Video Script</span>
           </button>
         </div>
       </div>

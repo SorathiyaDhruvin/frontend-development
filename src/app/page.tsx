@@ -17,12 +17,10 @@ import ScheduleSection from "../components/ScheduleSection";
 import FaqSection from "../components/FaqSection";
 import Footer from "../components/Footer";
 import BookingModal from "../components/BookingModal";
-import LoomWalkthroughModal from "../components/LoomWalkthroughModal";
 
 export default function Home() {
   const [isRedesign, setIsRedesign] = useState(true);
   const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [isVideoGuideOpen, setIsVideoGuideOpen] = useState(false);
 
   const currentData = isRedesign ? mayaReynoldsData : conejoValleyCloneData;
 
@@ -32,7 +30,6 @@ export default function Home() {
       <ViewSwitcher
         isRedesign={isRedesign}
         onToggle={(val) => setIsRedesign(val)}
-        onOpenVideoGuide={() => setIsVideoGuideOpen(true)}
       />
 
       {/* Main Navigation */}
@@ -121,12 +118,6 @@ export default function Home() {
         isOpen={isBookingOpen}
         onClose={() => setIsBookingOpen(false)}
         data={currentData}
-      />
-
-      {/* 5-Minute Video Walkthrough Guide Modal */}
-      <LoomWalkthroughModal
-        isOpen={isVideoGuideOpen}
-        onClose={() => setIsVideoGuideOpen(false)}
       />
     </div>
   );
